@@ -66,7 +66,7 @@ void ads1262::ads1262_Init()
   ads1262_Reg_Write(MODE2, 0x06);  //Ch 1 enabled, gain 6, connected to electrode in
   delay(10);
 //  ads1262_Reg_Write(INPMUX, 0x01);	//Ch 1 enabled, gain 6, connected to electrode in
-  ads1262_Reg_Write(INPMUX, 0b10010001);  //Ch 1 enabled, gain 6, connected to electrode in
+  ads1262_Reg_Write(INPMUX, 0b00100001);  //Ch 1 enabled, gain 6, connected to electrode in
   delay(10);  
   ads1262_Reg_Write(OFCAL0, 0x00);	//Ch 1 enabled, gain 6, connected to electrode in
   delay(10);  
