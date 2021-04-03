@@ -66,7 +66,8 @@ void ads1262::ads1262_Init()
   ads1262_Reg_Write(MODE2, 0x06);  //Ch 1 enabled, gain 6, connected to electrode in
   delay(10);
 //  ads1262_Reg_Write(INPMUX, 0x01);	//Ch 1 enabled, gain 6, connected to electrode in
-  ads1262_Reg_Write(INPMUX, 0b00100001);  //Ch 1 enabled, gain 6, connected to electrode in
+//  ads1262_Reg_Write(INPMUX, 0b00000001);  //Ch 1 enabled, gain 6, connected to electrode in
+  ads1262_Reg_Write(INPMUX, 0b00000001);  //Ch 1 enabled, gain 6, connected to electrode in
   delay(10);  
   ads1262_Reg_Write(OFCAL0, 0x00);	//Ch 1 enabled, gain 6, connected to electrode in
   delay(10);  
@@ -111,6 +112,74 @@ void ads1262::ads1262_Init()
  // ads1262_Start_Read_Data_Continuous();
   delay(10);
   ads1262_Enable_Start();
+//  SPI.begin();
+//  SPI.setBitOrder(MSBFIRST); 
+//  //CPOL = 0, CPHA = 1
+//  SPI.setDataMode(SPI_MODE1);
+//  // Selecting 1Mhz clock for SPI
+//  SPI.setClockDivider(SPI_CLOCK_DIV8); // DIV16
+//
+//  ads1262_Reset();
+//  delay(100);
+//  
+//  ads1262_Hard_Stop();
+//  delay(350);
+//  
+//  ads1262_Reg_Write(POWER, 0x11);     //Set sampling rate to 125 SPS
+//  delay(10);
+//  ads1262_Reg_Write(INTERFACE, 0x05); //Lead-off comp off, test signal disabled
+//  delay(10);
+//  ads1262_Reg_Write(MODE0, 0x00);   //Lead-off defaults
+//  delay(10);
+//  ads1262_Reg_Write(MODE1, 0x80); //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);
+//  ads1262_Reg_Write(MODE2, 0x06); //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);
+//  ads1262_Reg_Write(INPMUX, 0x01);  //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);  
+//  ads1262_Reg_Write(OFCAL0, 0x00);  //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);  
+//  ads1262_Reg_Write(OFCAL1, 0x00);  //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);  
+//  ads1262_Reg_Write(OFCAL2, 0x00);  //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);  
+//  ads1262_Reg_Write(FSCAL0, 0x00);  //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);  
+//  ads1262_Reg_Write(FSCAL1, 0x00);  //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);  
+//  ads1262_Reg_Write(FSCAL2, 0x40);  //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);  
+//  ads1262_Reg_Write(IDACMUX, 0xBB); //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);  
+//   ads1262_Reg_Write(IDACMAG, 0x00);  //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);  
+//  ads1262_Reg_Write(REFMUX, 0x00);  //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);    
+//  ads1262_Reg_Write(TDACP, 0x00); //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);    
+//  ads1262_Reg_Write(TDACN, 0x00); //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);    
+//  ads1262_Reg_Write(GPIOCON, 0x00); //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);    
+//  ads1262_Reg_Write(GPIODIR, 0x00); //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);    
+//  ads1262_Reg_Write(GPIODAT, 0x00); //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);    
+//  ads1262_Reg_Write(ADC2CFG, 0x00); //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);    
+//  ads1262_Reg_Write(ADC2MUX, 0x01); //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);    
+//  ads1262_Reg_Write(ADC2OFC0, 0x00);  //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);    
+//  ads1262_Reg_Write(ADC2OFC1, 0x00);  //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);    
+//  ads1262_Reg_Write(ADC2FSC0, 0x00);  //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);    
+//  ads1262_Reg_Write(ADC2FSC1, 0x40);  //Ch 1 enabled, gain 6, connected to electrode in
+//  delay(10);
+// // ads1262_Start_Read_Data_Continuous();
+//  delay(10);
+//  ads1262_Enable_Start();
 }
 
 void ads1262::ads1262_Reset()

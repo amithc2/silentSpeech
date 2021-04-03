@@ -11,8 +11,11 @@
    ---------------------------------------------------------- */
 #include <SPI.h>
 #include <SoftwareSerial.h>
+#include <FileIO.h>
 #include <math.h>
 #include "ads1262.h"
+
+unsigned long myTime;
 
 /* ----------------------------------------------------------
        CONSTANTS
@@ -49,9 +52,14 @@ void setup() {
   Serial.begin(9600);
   PC_ADS1262.ads1262_Init();                      
   Serial.println("ads1262 Initialised successfully....");
+
+//  FileSystem.begin();
+
+  
 }
 
 void loop() {
+//  File script = FileSystem.open("C:/Users/Harris Mohamed/Documents/College/Projects/silentSpeech/ads1262/diagnostic/test.txt", FILE_WRITE);
   volatile int i,data;
 
   if((digitalRead(ADS1262_DRDY_PIN)) == LOW)               // monitor Data ready(DRDY pin)
@@ -81,12 +89,26 @@ void loop() {
     resolution = (double)((double)VREF/pow(2,31));       //resolution= Vref/(2^n-1) , Vref=2.5, n=no of bits
     volt_V      = (resolution)*(float)sads1262Count;     // voltage = resolution * adc count
     volt_mV   =   volt_V*1000;                           // voltage in mV
+    Serial.print(millis());
+    Serial.print("-> ");
     Serial.print("Readout voltage");
     Serial.print(" : ");
     Serial.print(volt_V);
     Serial.print(" V ,");
     Serial.print(volt_mV);
     Serial.println(" mV");
+//
+//    myTime = millis();
+//
+//    script.print(myTime);
+//    script.print("-> "); 
+//    script.print("Readout voltage");
+//    script.print(" : ");
+//    script.print(volt_V);
+//    script.print(" V ,");
+//    script.print(volt_mV);
+//    script.println(" mV");
+//    script.close();
    }
     
   SPI_RX_Buff_Count = 0;
